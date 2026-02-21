@@ -9,8 +9,8 @@ const ResultCard = ({ item }) => {
   };
 
   return (
-    <div className="w-[18vw] relative h-80 bg-white rounded-xl overflow-hidden">
-      <a target="_blank" rel="noreferrer" href={item.url} className="h-full">
+    <div className="w-full relative h-72 sm:h-80 bg-white rounded-xl overflow-hidden shadow-md">
+      <a target="_blank" rel="noreferrer" href={item.url} className="h-full block">
         {item.type === "photo" && (
           <img className="h-full w-full object-cover" src={item.src} alt="" />
         )}
@@ -30,14 +30,14 @@ const ResultCard = ({ item }) => {
         )}
       </a>
 
-      <div className="flex justify-between items-center w-full px-4 py-5 absolute bottom-0 text-white">
-        <h2 className="text-xl font-semibold capitalize h-14 overflow-hidden">
+      <div className="absolute bottom-0 w-full px-3 sm:px-4 py-3 flex justify-between items-center text-white bg-gradient-to-t from-black/80 to-transparent">
+        <h2 className="text-sm sm:text-base font-semibold capitalize truncate max-w-[65%]">
           {item.title}
         </h2>
 
         <button
           onClick={handleAdd}
-          className="bg-indigo-600 active:scale-95 text-white rounded px-3 py-1"
+          className="bg-indigo-600 active:scale-95 text-white rounded px-3 py-1 text-xs sm:text-sm"
         >
           Save
         </button>

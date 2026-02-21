@@ -12,9 +12,8 @@ import ResultCard from "./ResultCard";
 const ResultGrid = () => {
   const dispatch = useDispatch();
 
-  // 🔥 THIS WAS MISSING
   const { query, activeTab, results, error } = useSelector(
-    (state) => state.search,
+    (state) => state.search
   );
 
   useEffect(() => {
@@ -74,12 +73,12 @@ const ResultGrid = () => {
   if (error) return <h1 className="text-red-500">Error: {error}</h1>;
 
   return (
-    <div className="flex justify-between w-full flex-wrap gap-6 overflow-auto px-10">
-      {results.map((item, idx) => (
-        <div key={idx}>
-          <ResultCard item={item} />
-        </div>
-      ))}
+    <div className="w-full px-4 sm:px-6 md:px-10 pb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {results.map((item, idx) => (
+          <ResultCard key={idx} item={item} />
+        ))}
+      </div>
     </div>
   );
 };
